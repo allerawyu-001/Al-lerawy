@@ -1,0 +1,154 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Cinzel", ui-serif, Georgia, serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* AL-LERAWY — Deep Navy & Royal Gold */
+  --background: oklch(0.21 0.05 254);              /* #0B1F3A */
+  --foreground: oklch(0.98 0.003 90);              /* #F8F8F6 */
+
+  --card: oklch(0.25 0.05 254);
+  --card-foreground: oklch(0.98 0.003 90);
+
+  --popover: oklch(0.23 0.05 254);
+  --popover-foreground: oklch(0.98 0.003 90);
+
+  --primary: oklch(0.73 0.14 78);                  /* #D4A017 royal gold */
+  --primary-foreground: oklch(0.21 0.05 254);
+
+  --secondary: oklch(0.28 0.045 254);
+  --secondary-foreground: oklch(0.98 0.003 90);
+
+  --muted: oklch(0.27 0.04 254);
+  --muted-foreground: oklch(0.78 0.02 90);
+
+  --accent: oklch(0.95 0.02 85);                   /* #F5EFE4 light cream */
+  --accent-foreground: oklch(0.21 0.05 254);
+
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.98 0.003 90);
+
+  --border: oklch(0.34 0.04 254);
+  --input: oklch(0.28 0.045 254);
+  --ring: oklch(0.73 0.14 78);
+
+  --gold: oklch(0.73 0.14 78);
+  --gold-soft: oklch(0.82 0.12 82);
+
+  --sidebar: oklch(0.23 0.05 254);
+  --sidebar-foreground: oklch(0.98 0.003 90);
+  --sidebar-primary: oklch(0.73 0.14 78);
+  --sidebar-primary-foreground: oklch(0.21 0.05 254);
+  --sidebar-accent: oklch(0.27 0.04 254);
+  --sidebar-accent-foreground: oklch(0.98 0.003 90);
+  --sidebar-border: oklch(0.34 0.04 254);
+  --sidebar-ring: oklch(0.73 0.14 78);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  button, .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  a {
+    transition: color 220ms ease, opacity 220ms ease;
+  }
+
+  ::selection {
+    background-color: var(--gold);
+    color: var(--primary-foreground);
+  }
+
+  /* Accessible fallback styling for native select options */
+  select option {
+    background-color: oklch(0.21 0.05 254);
+    color: oklch(0.98 0.003 90);
+  }
+}
+
+@layer utilities {
+  .text-gold { color: var(--gold); }
+  .bg-gold { background-color: var(--gold); }
+  .border-gold { border-color: var(--gold); }
+
+  .gold-gradient {
+    background-image: linear-gradient(135deg, oklch(0.82 0.12 82), oklch(0.68 0.14 78));
+  }
+  .text-gold-gradient {
+    background-image: linear-gradient(135deg, oklch(0.88 0.10 85), oklch(0.68 0.14 78));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hairline {
+    border-top: 1px solid color-mix(in oklab, var(--gold) 25%, transparent);
+  }
+  .glow-gold {
+    box-shadow: 0 24px 70px -24px color-mix(in oklab, var(--gold) 45%, transparent),
+                0 2px 10px -2px color-mix(in oklab, var(--background) 60%, transparent);
+  }
+}

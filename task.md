@@ -1,0 +1,15 @@
+- [ ] Create Firestore utility helpers (`src/lib/firestore.utils.ts`).
+- [ ] Update Customers page (`src/routes/admin.customers.tsx`) to use Firestore utils, proper loading/empty/error UI.
+- [ ] Update Producers page (`src/routes/admin.producers.tsx`) similarly.
+- [ ] Add Producer detail page (`src/routes/admin.producers.$id.tsx`).
+- [ ] Create Category CRUD page (`src/routes/admin.categories.tsx`).
+- [ ] Create CategoryForm component using Dialog (`src/components/CategoryForm.tsx`).
+- [ ] Update Sidebar to include Admin Management for super_admin.
+- [ ] Implement Admin Management pages (list, create, edit, permissions) using granular permission model.
+- [ ] Add permissions types (`src/lib/permissions.ts`).
+- [ ] Update Dashboard stats (`src/routes/admin.dashboard.tsx`) to compute revenue by summing totalAmount.
+- [ ] Replace Supabase references across codebase.
+- [ ] Add ErrorBanner and Loading components if not existing.
+- [ ] Ensure category images stored in Firebase Storage under `categories/` and URL saved.
+- [ ] Use Dialog component for all modals.
+- [ ] Test all pages manually.
